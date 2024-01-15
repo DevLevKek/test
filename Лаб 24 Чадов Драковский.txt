@@ -1,0 +1,267 @@
+#include <iostream>
+#include <ctime>
+#include <Windows.h>
+using namespace std;
+
+int Single_game()
+{
+	cout << "\x1b[93m + \x1b[97m | Крестик нолики\t \x1b[93m + \x1b[97m | Информация";
+	string cube[9] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+	for (int x = 0; x < 3; x++)
+	{
+		for(int z = 0; )
+	}
+
+
+
+}
+
+int Begin_game(int* player_1, int* player_2, int* bot, string& player_name_1, string& player_name_2, string& color_id_1, string& color_id_2, string& figure_1, string& figure_2)
+{
+	int vibor;
+	cout << "\x1b[93m + \x1b[97m | Крестик нолики " << endl << endl;
+	cout << "\x1b[93m 1 \x1b[97m| Одиночная игра" << endl;
+	cout << "\x1b[93m 2 \x1b[97m| Два игрока" << endl << endl;
+	cout << "\x1b[93m ~ \x1b[97m| Назад" << endl << endl;
+	cout << "\x1b[93m > \x1b[97m| Ввод: ";
+	cin >> vibor;
+	switch (vibor)
+	{
+	case 1:
+
+		break;
+	case 2:
+
+		break;
+	default:
+		break;
+	}
+	return 0;
+}
+
+
+int Statistics(int *player_1, int *player_2, int *bot, string &player_name_1, string &player_name_2, string &color_id_1, string &color_id_2)
+{
+	int a;
+	cout << "\x1b[93m + \x1b[97m| Статистика " << endl;
+	cout << "\t\t" << "\x1b[92mW\t\x1b[91mL\t\x1b[90mD\x1b[0m  |  Очки" << endl;
+	cout << "\x1b[93m 1 \x1b[97m| " << color_id_1 << player_name_1 << "\x1b[97m" << " \t" << player_1[0] << "\t" << player_1[1] << "\t" << player_1[2] << "  |  " << int((player_1[0] * 5) + (player_1[1] * - 6) + (player_1[2] * -1.2)) << endl;
+	cout << "\x1b[93m 2 \x1b[97m| " << color_id_2 << player_name_2 << "\x1b[97m" << " \t" << player_2[0] << "\t" << player_2[1] << "\t" << player_2[2] << "  |  " << int((player_2[0] * 5) + (player_2[1] * -6) + (player_2[2] * -1.2)) << endl;
+	cout << "\x1b[93m 3 \x1b[97m| COMP \t" << bot[0] << "\t" << bot[1] << "\t" << bot[2] << "  |  " << int((player_2[0] * 5) + (bot[1] * -6) + (bot[2] * -1.2)) << endl;;
+
+	cout << endl << "\x1b[93m ~ \x1b[97m| Назад ";
+	cout << endl << "\x1b[93m > \x1b[97m| Ввод: ";
+	cin >> a;
+	system("cls");
+	return 0;
+}
+
+int Setting_name(string &player_name)
+{
+	cout << "\x1b[93m + \x1b[97m| Настройка игрока \x1b[93m [Ник] \x1b[97m" << endl << endl;
+	cout << "\x1b[93m ~ \x1b[97m| Ник: " << player_name << endl;
+	cout << "\x1b[93m > \x1b[97m| Изменить ник: " ;
+	cin >> player_name;
+	system("cls");
+
+	return 0;
+}
+
+int Setting_color(string& color, string& color_id)
+{
+	const string color_i[16] = { "\x1b[30m", "\x1b[31m", "\x1b[32m", "\x1b[33m", "\x1b[34m", "\x1b[35m", "\x1b[36m", "\x1b[37m", 
+		"\x1b[90m", "\x1b[91m", "\x1b[92m", "\x1b[93m", "\x1b[94m", "\x1b[95m", "\x1b[96m", "\x1b[97m"};
+	const string color_n[16] = { "Черный", "Красный", "Зеленый", "Желтый", "Синий", "Пурпурный", "Голубой", "Белый", 
+		"Яркий черный", "Яркий красный", "Яркий зеленый", "Яркий желтый", "Яркий синий", "Яркий пурпурный", "Яркий голубой", "Яркий белый"};
+	int vibor;
+
+	cout << "\x1b[93m + \x1b[97m| Настройка цвета игрока " << endl << endl;
+	for(int i = 0; i < 16; i++)
+	{
+		cout << "\x1b[93m " << i + 1 << " | "<< color_i[i] << color_n[i] << "\x1b[97m" << endl;
+	}
+	cout << endl << "\x1b[93m > \x1b[97m| Изменить цвет: ";
+	cin >> vibor;
+
+	if (vibor < 17)
+	{	
+		color = color_n[vibor - 1];
+		color_id = color_i[vibor - 1];
+	}
+	system("cls");
+	return 0;
+}
+
+int Figure(string& figure)
+{
+	int vibor;
+	cout << "\x1b[93m + \x1b[97m| Настройка игрока " << endl << endl;
+	cout << "\x1b[93m 1 \x1b[97m|  X \x1b[97m" << endl;
+	cout << "\x1b[93m 2 \x1b[97m|  O \x1b[97m" << endl;
+	cout << "\x1b[93m 3 \x1b[97m|  Z \x1b[97m" << endl;
+	cout << "\x1b[93m 4 \x1b[97m|  Y \x1b[97m" << endl;
+	cout << endl << "\x1b[93m > \x1b[97m| Ввод: ";
+	cin >> vibor;
+	switch (vibor)
+	{
+	case 1:
+		figure = "X";
+		break;
+	case 2:
+		figure = "O";
+		break;
+	case 3:
+		figure = "Z";
+		break;
+	case 4:
+		figure = "Y";
+		break;
+	default:
+		break;
+	}
+	system("cls");
+
+	return 0;
+}
+
+int Setting(string& player_name_1, string& player_name_2, string& figure_1, string& figure_2, string& color_1, string& color_2, string& color_id_1, string& color_id_2)
+{
+	bool a = true;
+	int vibor;
+
+		cout << "\x1b[93m + \x1b[97m| Настройка игрока " << endl << endl;
+		cout << "\x1b[93m 1 \x1b[97m| " << color_id_1 << player_name_1 << "\x1b[97m" << endl;
+		cout << "\x1b[93m 2 \x1b[97m| " << color_id_2 << player_name_2 << "\x1b[97m" << endl << endl;
+		cout << endl << "\x1b[93m > \x1b[97m| Ввод: ";
+		cin >> vibor;
+
+		system("cls");
+
+		switch (vibor)
+		{
+		case 1:
+
+			cout << "\x1b[93m + \x1b[97m| Настройка игрока \x1b[93m [" << player_name_2 << "] \x1b[97m" << endl << endl;
+			cout << "\x1b[93m 1 \x1b[97m| Ник\t: " << color_id_1 << player_name_1 << "\x1b[97m" << endl;
+			cout << "\x1b[93m 2 \x1b[97m| Фигура\t: " << figure_1 << endl;
+			cout << "\x1b[93m 3 \x1b[97m| Цвет\t: " << color_1 << endl;
+			cout << endl << "\x1b[93m > \x1b[97m| Ввод: ";
+			cin >> vibor;
+
+			system("cls");
+
+			switch (vibor)
+			{
+			case 1:
+				Setting_name(player_name_1);
+				break;
+
+			case 2:
+				Figure(figure_1);
+				break;
+
+			case 3:
+				Setting_color(color_1, color_id_1);
+				break;
+
+			default:
+				exit;
+				break;
+			}
+			break;
+
+		case 2: 
+			cout << "\x1b[93m + \x1b[97m| Настройка игрока \x1b[93m ["<< player_name_2 << "] \x1b[97m" << endl << endl;
+			cout << "\x1b[93m 1 \x1b[97m| Ник\t: " << color_id_2 << player_name_2 << "\x1b[97m" << endl;
+			cout << "\x1b[93m 2 \x1b[97m| Фигура\t: " << figure_2 << endl;
+			cout << "\x1b[93m 3 \x1b[97m| Цвет\t: " << color_2 << endl;
+			cout << endl << "\x1b[93m > \x1b[97m| Ввод: ";
+			cin >> vibor;
+
+			system("cls");
+			switch (vibor)
+			{
+			case 1:
+				Setting_name(player_name_2);
+				break;
+
+			case 2:
+				Figure(figure_2);
+				break;
+
+			case 3:
+				Setting_color(color_2, color_id_2);
+				break;
+
+			default:
+				exit;
+				break;
+			}
+		default:
+			break;
+		}
+	return 0;
+}
+
+int main()
+{
+	setlocale(0, "");
+
+	 const string green = "\x1b[92m",
+	red = "\x1b[91m",
+	white = "\x1b[97m",
+	purle = "\x1b[95m",
+	auqa = "\x1b[96m",
+	yellow = "\x1b[93m";
+	 
+
+	 string player_name_1 = "Игрок 1",
+		 player_name_2 = "Игрок 2",
+		 figure_1 = "X",
+		 figure_2 = "O",
+		 color_1 = "Белый",
+		 color_2 = "Белый",
+		 color_id_1 = "\x1b[97m",
+		 color_id_2 = "\x1b[97m";
+
+	const string bot_name = "Бот";
+
+	int player_1[3] = { 0,0,0 },
+		player_2[3] = { 0,0,0 },
+		bot[3] = { 0,0,0 },
+		vibor = 1;
+
+	bool a = true;
+
+	while (a)
+	{
+		cout << yellow << "[ Меню ]" << white << endl;
+		cout << auqa << " 1 " << white << "Начать игру" << endl;
+		cout << auqa << " 2 " << white << "Статистика" << endl;
+		cout << auqa << " 3 " << white << "Настройки" << endl;
+		cout << auqa << " 4 " << white << "Выйти" << endl;
+		cout << "[" << auqa << "+" << white << "]" << " Выбор: ";
+		cin >> vibor;
+
+		system("cls");
+
+		switch (vibor)
+		{
+		case 1:
+			Begin_game(player_1, player_2, bot, player_name_1, player_name_2, color_id_1, color_id_2, figure_1, figure_2);
+			break;
+		case 2:
+			Statistics(player_1, player_2, bot, player_name_1, player_name_2, color_id_1, color_id_2);
+			break;
+		case 3:
+			Setting(player_name_1, player_name_2, figure_1, figure_2,color_1, color_2, color_id_1, color_id_2);
+			break;
+
+		default:
+			a = false;
+			break;
+		}
+		
+	}
+
+}

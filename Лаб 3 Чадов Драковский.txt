@@ -1,0 +1,64 @@
+#include <iostream>
+#include <windows.h>
+using namespace std;
+
+int main()
+{
+	setlocale(0, "");
+
+	int input;
+	string auqa = "\x1b[96m";
+	string red = "\x1b[91m";
+
+	cout << "Введите число: ";
+	cin >> input;
+	
+	if (input >= 1 && input <= 10) {
+		cout << auqa << "Цифра в диапазоне: 1 - 10";
+	}
+
+	else if (input >= 11 && input <= 20) {
+		cout << auqa << "Цифра в диапазоне: 11 - 20";
+	}
+
+	else if (input >= 21 && input <= 30) {
+		cout << auqa << "Цифра в диапазоне: 21 - 30";
+	}
+
+	else if (input >= 31 && input <= 40) {
+		cout << auqa << "Цифра в диапазоне: 31 - 40";
+	}
+
+	else if (input >= 41 && input <= 50) {
+		cout << auqa << "Цифра в диапазоне: 41 - 50";
+	}
+
+	else if (input >= 51 && input <= 60) {
+		cout << auqa << "Цифра в диапазоне: 51 - 60";
+	}
+
+	else if (input >= 61 && input <= 70) {
+		cout << auqa << "Цифра в диапазоне: 61 - 70";
+	}
+
+	else if (input >= 71 && input <= 80) {
+		cout << auqa << "Цифра в диапазоне: 71 - 80";
+	}
+
+	else if (input >= 81 && input <= 90) {
+		cout << auqa << "Цифра в диапазоне: 81 - 90";
+	}
+
+	else if (input >= 91 && input <= 100) {
+		cout << auqa << "Цифра в диапазоне: 91 - 100";
+	}
+
+	else if (input < 1){
+		cout << red << "Ошибка! Число меньше 0.";
+	}
+	else if (input > 100) {
+		cout << red << "Ошибка! Число больше 100.";
+	}
+
+	Sleep(3000);
+}

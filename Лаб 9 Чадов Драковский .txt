@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+	int number_race,
+	i = 1;
+
+	string green = "\x1b[92m";
+	string red = "\x1b[91m";
+	string white = "\x1b[0m";
+
+	setlocale(0, "");
+
+	cout << "[+] Цикл 'WHILE'" << endl;
+	cout << "[+] Введите число: " << green;
+	cin >> number_race;
+	cout << white;
+
+			while (number_race > 0 && number_race < 15)
+			{
+
+
+				while (i <= number_race)
+				{
+					cout << "[+] Цикл отработал.Круг: " << red << i << white << endl;
+					i++;
+				}
+				cout << "[+] Введите число: " << green;
+				cin >> number_race;
+				cout << white;
+
+				i = 1;
+			}
+}

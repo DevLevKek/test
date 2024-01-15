@@ -1,0 +1,367 @@
+#include <iostream>
+#include <windows.h>
+#include <string>
+using namespace std;
+
+
+int main() {
+
+	int number_month;
+	string month,
+		month_e,
+		day_str;
+	int	day;
+
+	setlocale(0, "");
+
+	cout << "[+] Месяца года" << endl;
+	cout << "[1] Январь" << endl;
+	cout << "[2] Февраль" << endl;
+	cout << "[3] Март" << endl;
+	cout << "[4] Апрель" << endl;
+	cout << "[5] Май" << endl;
+	cout << "[6] Июнь" << endl;
+	cout << "[7] Июль" << endl;
+	cout << "[8] Август" << endl;
+	cout << "[9] Сентябрь" << endl;
+	cout << "[10] Октябрь" << endl;
+	cout << "[11] Ноябрь" << endl;
+	cout << "[12] Декабрь" << endl;
+
+	cout << "[+] Выберите месяц: ";
+	cin >> number_month;
+
+	switch (number_month)
+	{
+	case 1:
+		month = "Январь";
+		month_e = "Января";
+		break;
+
+	case 2:
+		month = "Февраль";
+		month_e = "Февраля";
+		break;
+
+	case 3:
+		month = "Март";
+		month_e = "Марта";
+		break;
+
+	case 4:
+		month = "Апрель";
+		month_e = "Апреля";
+		break;
+
+	case 5:
+		month = "Май";
+		month_e = "Мая";
+		break;
+
+	case 6:
+		month = "Июнь";
+		month_e = "Июня";
+		break;
+
+	case 7:
+		month = "Июль";
+		month_e = "Июля";
+		break;
+
+	case 8:
+		month = "Август";
+		month_e = "Августа";
+		break;
+
+	case 9:
+		month = "Сентябрь";
+		month_e = "Сентября";
+		break;
+
+	case 10:
+		month = "Октябрь";
+		month_e = "Октября";
+		break;
+
+	case 11:
+		month = "Ноябрь";
+		month_e = "Ноября";
+		break;
+
+
+	case 12:
+		month = "Декабрь";
+		month_e = "Декабря";
+		break;
+
+	default:
+		month = "ОШИБКА";
+		month_e = "ОШИБКА";
+		break;
+	}
+
+	cout << "[+] Выбран месяц - " << month << endl;
+
+	cout << "[+] Выберите день месяца: ";
+	cin >> day;
+
+	switch (number_month)
+	{
+	case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+		switch (day)
+		{
+		case 1: case 2: case 3: case 4:
+		case 5: case 6: case 7: case 8:
+		case 9: case 10: case 11: case 12:
+		case 13: case 14: case 15: case 16:
+		case 17: case 18: case 19: case 20:
+		case 21: case 22: case 23: case 24:
+		case 25: case 26: case 27: case 28:
+		case 29: case 30: case 31:
+
+			// Исползую библиотеку <string>, которая преобразует целое число в строку вместо иконок
+
+			day_str = to_string(day);
+			break;
+
+		default:
+			day_str = "\x1b[91m error \x1b[0m";
+			break;
+
+		}
+		break;
+
+	case 4: case 6: case 11:
+		switch (day)
+		{
+		case 1: case 2: case 3: case 4:
+		case 5: case 6: case 7: case 8:
+		case 9: case 10: case 11: case 12:
+		case 13: case 14: case 15: case 16:
+		case 17: case 18: case 19: case 20:
+		case 21: case 22: case 23: case 24:
+		case 25: case 26: case 27: case 28:
+		case 29: case 30:
+
+			day_str = to_string(day);
+			break;
+
+		default:
+			day_str = "\x1b[91m error \x1b[0m";
+			break;
+
+		}
+
+	case 9:
+		switch (day)
+		{
+		case 1: case 2: case 3: case 4:
+		case 5: case 6: case 7: case 8:
+		case 9: case 10: case 11: case 12:
+		case 13: case 14: case 15: case 16:
+		case 17: case 18: case 19: case 20:
+		case 21: case 22: case 23: case 24:
+		case 25: case 26: case 27: case 28:
+		case 29:
+
+			day_str = to_string(day);
+			break;
+
+		default:
+			day_str = "\x1b[91m error \x1b[0m";
+			break;
+		}
+
+	case 2:
+		switch (day)
+		{
+		case 1: case 2: case 3: case 4:
+		case 5: case 6: case 7: case 8:
+		case 9: case 10: case 11: case 12:
+		case 13: case 14: case 15: case 16:
+		case 17: case 18: case 19: case 20:
+		case 21: case 22: case 23: case 24:
+		case 25: case 26: case 27: case 28:
+
+			day_str = to_string(day);
+			break;
+
+		default:
+			day_str = "\x1b[91m error \x1b[0m";
+			break;
+		}
+
+	default:
+		break;
+	}
+
+
+	cout << "[+] Календарь: " << day_str << " " << month_e;
+
+	Sleep(3000);
+}
+------------------------------------------------------------------------------------------------
+доб.
+-------------------------------------------------------------------------------------------------
+#include <iostream>
+using namespace std;
+
+int main() {
+
+	int number_month,
+		day = NULL;
+
+	string month,
+		month_e;
+
+	bool error = true;
+
+	setlocale(0, "");
+
+	cout << "[+] Месяца года" << endl;
+	cout << "[1] Январь" << endl;
+	cout << "[2] Февраль" << endl;
+	cout << "[3] Март" << endl;
+	cout << "[4] Апрель" << endl;
+	cout << "[5] Май" << endl;
+	cout << "[6] Июнь" << endl;
+	cout << "[7] Июль" << endl;
+	cout << "[8] Август" << endl;
+	cout << "[9] Сентябрь" << endl;
+	cout << "[10] Октябрь" << endl;
+	cout << "[11] Ноябрь" << endl;
+	cout << "[12] Декабрь" << endl;
+
+	cout << "[+] Выберите месяц: ";
+	cin >> number_month;
+
+	switch (number_month)
+	{
+	case 1:
+		month = "Январь";
+		month_e = "Января";
+		break;
+
+	case 2:
+		month = "Февраль";
+		month_e = "Февраля";
+		break;
+
+	case 3:
+		month = "Март";
+		month_e = "Марта";
+		break;
+
+	case 4:
+		month = "Апрель";
+		month_e = "Апреля";
+		break;
+
+	case 5:
+		month = "Май";
+		month_e = "Мая";
+		break;
+
+	case 6:
+		month = "Июнь";
+		month_e = "Июня";
+		break;
+
+	case 7:
+		month = "Июль";
+		month_e = "Июля";
+		break;
+
+	case 8:
+		month = "Август";
+		month_e = "Августа";
+		break;
+
+	case 9:
+		month = "Сентябрь";
+		month_e = "Сентября";
+		break;
+
+	case 10:
+		month = "Октябрь";
+		month_e = "Октября";
+		break;
+
+	case 11:
+		month = "Ноябрь";
+		month_e = "Ноября";
+		break;
+
+
+	case 12:
+		month = "Декабрь";
+		month_e = "Декабря";
+		break;
+
+	default:
+		month = "\x1b[91m error \x1b[0m";
+		month_e = "\x1b[91m error \x1b[0m";
+		error = false;
+		break;
+	}
+
+	cout << "[+] Выбран месяц - " << month << endl;
+
+	while (error == true) {
+		cout << "[+] Выберите день месяца: ";
+		cin >> day;
+
+		if (number_month == 1 || number_month == 3 ||
+			number_month == 5 || number_month == 7 ||
+			number_month == 8 || number_month == 10||
+			number_month == 12) 
+			{
+				if (day > 31) 
+					{
+					cout << "\x1b[91m error \x1b[0m" << endl;
+					}
+				else 
+					{
+					error = false;
+					}
+			}
+		else if(number_month == 4 || number_month == 6 || number_month == 11)
+			{
+			if (day > 30)
+				{
+				cout << "\x1b[91m error \x1b[0m" << endl;
+				}
+			else
+				{
+				error = false;
+				}
+			}
+		else if (number_month == 9)
+		{
+			if (day > 29)
+			{
+				cout << "\x1b[91m error \x1b[0m" << endl;
+			}
+			else
+			{
+				error = false;
+			}
+		}
+		else if (number_month == 2)
+		{
+			if (day > 28)
+			{
+				cout << "\x1b[91m error \x1b[0m" << endl;
+			}
+			else
+			{
+				error = false;
+			}
+		}
+	}
+
+	cout << "[+] Календарь: " << day << " " << month_e;
+
+
+	int _; cin >>_;
+}

@@ -1,0 +1,51 @@
+#include <iostream>
+#include <windows.h>
+using namespace std;
+
+int main() {
+
+	float first_number,
+		second_number,
+		result = 0;
+	string operation;
+
+	setlocale(0, "");
+
+	cout << "Введите первое число: ";
+	cin >> first_number;
+
+	if (first_number == 0) {
+		cout << "Ошибка";
+	}
+	else {
+
+		cout << "Введите операцию [ + ; - ; / ; * ; % ]" << endl;
+		cout << "Операция: ";
+		cin >> operation;
+
+		if (operation == "+" || operation == "-" || operation == "*" || operation == "/" || operation == "%") {
+			cout << "Введите второе число: ";
+			cin >> second_number;
+
+			if (operation == "+") {
+				result = first_number + second_number;
+			}
+			else if (operation == "-") {
+				result = first_number - second_number;
+			}
+			else if (operation == "*") {
+				result = first_number * second_number;
+			}
+			else if (operation == "/") {
+				result = first_number / second_number;
+			}
+			else if (operation == "%") {
+				result = first_number / 100 * second_number;
+			}
+			cout << "Результата: " << result;
+			Sleep(3000);
+		}
+	}
+}
+
+

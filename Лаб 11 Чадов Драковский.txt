@@ -1,0 +1,492 @@
+#include <iostream>
+#include "windows.h"
+using namespace std;
+
+void ext(bool& a)
+{
+	system("cls");
+	string i;
+	cout << endl;
+	cout << " \x1b[91mВы уверены ? \x1b[0m" << endl;
+	cout << " Ввод[Y/N]: ";
+	cin >> i;
+	if (i == "Y" || i == "y")
+	{
+		a = false;
+	}
+}
+
+void begin_game(string& user, int& hp, int& coint, int& num_qt, string& clr_quit, string& clr_otv)
+{
+	int i = 1,
+		input_us;
+	coint = 0;
+	hp = 3;
+	string white = "\x1b[0m",
+		defis_1 = " [\x1b[96m1\x1b[0m] ",
+		defis_2 = " [\x1b[96m2\x1b[0m] ",
+		defis_3 = " [\x1b[96m3\x1b[0m] ",
+		defis_4 = " [\x1b[96m4\x1b[0m] ",
+		true_otv = " \x1b[92m Правильно \x1b[0m",
+		false_otv = " \x1b[91m Неправильно \x1b[0m";
+
+	while (i <= num_qt)
+	{
+		if (hp == 0)
+		{
+			break;
+		}
+		system("cls");
+
+		cout << endl;
+		cout << " Игрок: \x1b[91m" << user << "\x1b[0m  |  HP: \x1b[91m" << hp << "\x1b[0m  |  Очки: \x1b[91m" << coint << "\x1b[0m";
+		cout << endl << endl;
+
+		switch (i)
+		{
+		case 1:
+			cout << clr_quit << " Язык Си разработан Деннисом Ритчи в этом году: " << white << endl;
+			cout << defis_1 << "1982" << "   " << defis_2 << "1983" << endl;
+			cout << defis_3 << "1972" << "   " << defis_4 << "1954" << endl;
+			cout << clr_otv << " Ответ: " << white;
+			cin >> input_us;
+
+			if (input_us == 3)
+			{
+				cout << endl << true_otv << endl;
+				coint++;
+			}
+			else
+			{
+				cout << endl << false_otv << endl;
+				hp--;
+			}
+			break;
+
+		case 2:
+			cout << clr_quit << " Класс - это:" << white << endl;
+			cout << defis_1 << "Любой тип данных, определяемый пользователем" << endl;
+			cout << defis_2 << "Тип данных, определяемый пользователем и сочетающий в себе данные и функции их обработки" << endl;
+			cout << defis_3 << "Структура, для которой в программе имеются функции работы с нею" << endl;
+			cout << defis_4 << "Любой тип данных" << endl;
+			cout << clr_otv << " Ответ: " << white;
+			cin >> input_us;
+
+			if (input_us == 2)
+			{
+				cout << endl << true_otv << endl;
+				coint++;
+			}
+			else
+			{
+				cout << endl << false_otv << endl;
+				hp--;
+			}
+			break;
+
+		case 3:
+			cout << clr_quit << " Членами класса могут быть" << white << endl;
+			cout << defis_1 << "Только переменные, объявленные как private" << endl;
+			cout << defis_2 << "Только функции, объявленные как private" << endl;
+			cout << defis_3 << "Как переменные, так и функции, могут быть объявлены как private и как public" << endl;
+			cout << defis_4 << "Только переменные и функции, объявленные как private" << endl;
+			cout << clr_otv << " Ответ: " << white;
+			cin >> input_us;
+
+			if (input_us == 3)
+			{
+				cout << endl << true_otv << endl;
+				coint++;
+			}
+			else
+			{
+				cout << endl << false_otv << endl;
+				hp--;
+			}
+			break;
+
+		case 4:
+			cout << clr_quit << " Что называется конструктором?" << white << endl;
+			cout << defis_1 << "Метод, имя которого совпадает с именем класса и который вызывается автоматически при создании объекта класса" << endl;
+			cout << defis_2 << "Метод, имя которого совпадает с именем класса и который вызывается автоматически при объявлении класса (до создания объекта класса)" << endl;
+			cout << defis_3 << "Метод, имя которого необязательно совпадает с именем класса и который вызывается при создании объекта класса" << endl;
+			cout << defis_4 << "Метод, имя которого совпадает с именем класса и который необходимо явно вызывать из головной программы при объявлении объекта класса" << endl;
+			cout << clr_otv << " Ответ: " << white;
+			cin >> input_us;
+
+			if (input_us == 1)
+			{
+				cout << endl << true_otv << endl;
+				coint++;
+			}
+			else
+			{
+				cout << endl << false_otv << endl;
+				hp--;
+			}
+			break;
+
+		case 5:
+			cout << clr_quit << "Выберите правильное утверждение: " << white << endl;
+			cout << defis_1 << "По умолчанию члены класса имеют атрибут private" << endl;
+			cout << defis_2 << "По умолчанию члены класса имеют атрибут public" << endl;
+			cout << defis_3 << "Члены класса имеют доступ только к элементам public" << endl;
+			cout << defis_4 << "Элементы класса с атрибутом private доступны только членам класса" << endl;
+			cout << clr_otv << " Ответ: " << white;
+			cin >> input_us;
+
+			if (input_us == 1 || input_us == 4)
+			{
+				cout << endl << true_otv << endl;
+				coint++;
+			}
+			else
+			{
+				cout << endl << false_otv << endl;
+				hp--;
+			}
+			break;
+
+		case 6:
+			cout << clr_quit << "Полиморфизм – это " << white << endl;
+			cout << defis_1 << "Cредство, позволяющее использовать одно имя для обозначения действий, общих для родственных классов" << endl;
+			cout << defis_2 << "Cредство, позволяющее в одном классе использовать методы с одинаковыми именами" << endl;
+			cout << defis_3 << "Cредство, позволяющее в одном классе использовать методы с разными именами для выполнения одинаковых действий" << endl;
+			cout << defis_4 << "Cредство, позволяющее перегружать функции для работы с разными типами или разным количеством аргументов" << endl;
+			cout << clr_otv << " Ответ: " << white;
+			cin >> input_us;
+
+			if (input_us == 1)
+			{
+				cout << endl << true_otv << endl;
+				coint++;
+			}
+			else
+			{
+				cout << endl << false_otv << endl;
+				hp--;
+			}
+			break;
+
+		case 7:
+			cout << clr_quit << "Объект - это" << white << endl;
+			cout << defis_1 << "Переменная, содержащая указатель на класс" << "   " << defis_2 << "Экземпляр класса" << endl;
+			cout << defis_3 << "Класс, который содержит в себе данные и методы их обработки" << "   " << defis_4 << "Функция" << endl;
+			cout << clr_otv << " Ответ: " << white;
+			cin >> input_us;
+
+			if (input_us == 2)
+			{
+				cout << endl << true_otv << endl;
+				coint++;
+			}
+			else
+			{
+				cout << endl << false_otv << endl;
+				hp--;
+			}
+			break;
+
+		case 8:
+			cout << clr_quit << "Что называется деструктором?" << white << endl;
+			cout << defis_1 << "Метод, который уничтожает объект" << "   " << defis_2 << "Метод, который удаляет объект" << endl;
+			cout << defis_3 << "Метод, который освобождает память, занимаемую объектом" << "   " << defis_4 << "Системная функция, которая освобождает память, занимаемую объектом" << endl;
+			cout << clr_otv << " Ответ: " << white;
+			cin >> input_us;
+
+			if (input_us == 3)
+			{
+				cout << endl << true_otv << endl;
+				coint++;
+			}
+			else
+			{
+				cout << endl << false_otv << endl;
+				hp--;
+			}
+			break;
+
+		case 9:
+			cout << clr_quit << "Выберите правильное объявление производного класса" << white << endl;
+			cout << defis_1 << "class MoreDetails:: Details;" << "   " << defis_2 << "class MoreDetails: public class Details;" << endl;
+			cout << defis_3 << "class MoreDetails: public Details;" << "   " << defis_4 << "class MoreDetails: class(Details);" << endl;
+			cout << clr_otv << " Ответ: " << white;
+			cin >> input_us;
+
+			if (input_us == 3)
+			{
+				cout << endl << true_otv << endl;
+				coint++;
+			}
+			else
+			{
+				cout << endl << false_otv << endl;
+				hp--;
+			}
+			break;
+
+		case 10:
+			cout << clr_quit << "Дружественная функция - это";
+			cout << defis_1 << "Функция другого класса, среди аргументов которой есть элементы данного класса" << endl;
+			cout << defis_2 << "Функция, объявленная в классе с атрибутом friend, но не являющаяся членом класса" << endl;
+			cout << defis_3 << "Функция, являющаяся членом класса и объявленная с атрибутом friend" << endl;
+			cout << defis_4 << "Функция, которая в другом классе объявлена как дружественная данному" << endl;
+			cout << clr_otv << " Ответ: " << white;
+			cin >> input_us;
+
+			if (input_us == 2)
+			{
+				cout << endl << true_otv << endl;
+				coint++;
+			}
+			else
+			{
+				cout << endl << false_otv << endl;
+				hp--;
+			}
+			break;
+
+		case 11:
+			cout << clr_quit << "Какой из компонентов может входить в интегрированную среду программирования" << white << endl;
+			cout << defis_1 << "Наладчик" << "   " << defis_2 << "Доводчик" << endl;
+			cout << defis_3 << "Проводчик" << "   " << defis_4 << "Отладчик" << endl;
+			cout << clr_otv << " Ответ: " << white;
+			cin >> input_us;
+
+			if (input_us == 4)
+			{
+				cout << endl << true_otv << endl;
+				coint++;
+			}
+			else
+			{
+				cout << endl << false_otv << endl;
+				hp--;
+			}
+			break;
+
+		case 12:
+			cout << clr_quit << "Чему будет равен результат вычисления выражения: int d=5; bool b = true, c; c = (!b||(d>3))" << white << endl;
+			cout << defis_1 << "Ошибка компилятора" << "   " << defis_2 << "false" << endl;
+			cout << defis_3 << "true" << "   " << defis_4 << "1" << endl;
+			cout << clr_otv << " Ответ: " << white;
+			cin >> input_us;
+
+			if (input_us == 3)
+			{
+				cout << endl << true_otv << endl;
+				coint++;
+			}
+			else
+			{
+				cout << endl << false_otv << endl;
+				hp--;
+			}
+			break;
+
+		default:
+			break;
+		}
+		i++;
+		Sleep(1000);
+	}
+
+	cout << endl << " Ваш счет: " << coint;
+	Sleep(1500);
+}
+
+void setting_user(string& user)
+{
+	cout << endl;
+	cout << " \x1b[96m-\x1b[0m " << user << " ---> ";
+	cin >> user;
+}
+
+void setting_quation(int& num_Quat)
+{
+	bool i = true;
+	int a;
+
+	while (i)
+	{
+		cout << endl;
+		cout << " \x1b[91m-\x1b[0m На данный момент в игре: " << num_Quat << " вопросов" << endl;
+		cout << " \x1b[91m-\x1b[0m Изменить на --> ";
+		cin >> a;
+		if (a > 0 && a < 13)
+		{
+			i = false;
+			num_Quat = a;
+		}
+		else
+		{
+			cout << endl << "\x1b[91m Ошибка \x1b[0m";
+			Sleep(1000);
+		}
+		system("cls");
+	}
+}
+
+void setting_color(string& color_main, string& color_quation, string& color_otvet)
+{
+	int inpt_user_one,
+		inpt_user_two;
+
+	string color;
+
+	string green = "\x1b[92m";
+	string red = "\x1b[91m";
+	string white = "\x1b[0m";
+	string purle = "\x1b[95m";
+	string auqa = "\x1b[96m";
+
+	cout << endl;
+	cout << " Поменять цвет для: " << endl;
+	cout << " \x1b[96m1\x1b[0m Главное" << endl;
+	cout << " \x1b[96m2\x1b[0m Вопросы" << endl;
+	cout << " \x1b[96m3\x1b[0m Ответы" << endl;
+	cout << endl;
+	cout << " \x1b[96m-\x1b[0m Ввод: ";
+	cin >> inpt_user_one;
+
+	cout << endl;
+	cout << " \x1b[91m****\x1b[0m Список цветов:" << endl;
+	cout << " \x1b[92m<==>\x1b[0m green" << endl;
+	cout << " \x1b[91m<==>\x1b[0m red" << endl;
+	cout << " \x1b[95m<==>\x1b[0m purle" << endl;
+	cout << " \x1b[96m<==>\x1b[0m auqa" << endl;
+	cout << endl;
+	cout << " \x1b[91m-\x1b[0m Ввод: ";
+	cin >> inpt_user_two;
+
+	switch (inpt_user_two)
+	{
+	case 1:
+		color = green;
+		break;
+
+	case 2:
+		color = red;
+		break;
+
+	case 3:
+		color = purle;
+		break;
+
+	case 4:
+		color = auqa;
+		break;
+
+	default:
+		cout << "Нет такого цвета";
+		break;
+	}
+	if (inpt_user_one == 1)
+	{
+		color_main = color;
+	}
+	else if (inpt_user_one == 2)
+	{
+		color_quation = color;
+	}
+	else if (inpt_user_one == 3)
+	{
+		color_otvet = color;
+	}
+}
+
+void setting(string& user, string& col_main, string& col_quit, string& col_otvet, int& Num_Quat)
+{
+	system("cls");
+
+	string inpt_user;
+	cout << endl << endl;
+	cout << " \x1b[91m1\x1b[0m Редактирование имя игрока" << endl;
+	cout << " \x1b[91m2\x1b[0m Редактирование вопросов в игре" << endl;
+	cout << " \x1b[91m3\x1b[0m Редактирование цвет интерфейса" << endl;
+	cout << " \x1b[91m-\x1b[0m Ввод: ";
+	cin >> inpt_user;
+
+	if (inpt_user == "1")
+	{
+		setting_user(user);
+	}
+	else if (inpt_user == "2")
+	{
+		setting_quation(Num_Quat);
+	}
+	else if (inpt_user == "3")
+	{
+		setting_color(col_main, col_quit, col_otvet);
+	}
+}
+
+void rule()
+{
+	system("cls");
+	string i;
+	cout << endl << endl;
+	cout << " \x1b[96m-\x1b[0m Игрок получает очки за правильный ответ на вопрос." << endl;
+	cout << " \x1b[96m-\x1b[0m Игрок проходит дальше за правильный ответ." << endl;
+	cout << " \x1b[96m-\x1b[0m Игрок теряет жизнь при неправильном ответе." << endl;
+	Sleep(7000);
+}
+
+int main() {
+	setlocale(0, "");
+	// Цвета и дефис
+	string auqa = "\x1b[96m",
+		purle = "\x1b[95m",
+		white = "\x1b[0m",
+		red = "\x1b[91m",
+		green = "\x1b[92m",
+		defis = " [\x1b[96m-\x1b[0m] ";
+
+	// Игрок 
+	string user = "user";
+	int health = 3,
+		coint = 0;
+
+	// Выбор и выход  
+	bool ex = true;
+	string input_user;
+
+	// Вопросы и их настройки 
+	int number_quition = 10;
+
+	// Настройка цветов игры
+	string color_main = white,
+		color_quation = white,
+		color_otvet = white;
+
+	cout <<  endl << "  Hello, " << user << endl;
+
+	while (ex)
+	{
+		system("cls");
+		cout << endl;
+		cout << white << defis << color_main << " Начать игру;" << endl;
+		cout << white << defis << color_main << " Настройка;" << endl;
+		cout << white << defis << color_main << " Правила;" << endl;
+		cout << white << defis << color_main << " Выйти;" << endl << endl;
+		cout << white << defis << color_otvet << " Ввод: ";
+		cin >> input_user;
+		cout << color_otvet;
+
+		if (input_user == "1")
+		{
+			begin_game(user, health, coint, number_quition, color_quation, color_otvet);
+		}
+		else if (input_user == "2")
+		{
+			setting(user, color_main, color_quation, color_otvet, number_quition);
+		}
+		else if (input_user == "3")
+		{
+			rule();
+		}
+		else if (input_user == "4") {
+			ext(ex);
+		}
+	}
+}

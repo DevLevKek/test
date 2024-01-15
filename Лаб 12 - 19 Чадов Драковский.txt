@@ -1,0 +1,653 @@
+#include <iostream>
+#include <windows.h>
+using namespace std;
+
+void Line()
+{
+
+	int size;
+	string input_ch;
+
+	system("cls");
+
+	cout << "[+] Фигура: “Линия”" << endl;
+	cout << endl;
+	cout << "[" << 1 << "] Горизонтальная" << endl;
+	cout << "[" << 2 << "] Вертикальная" << endl;
+	cout << "[+] Выберите тип: ";
+	cin >> size;
+	cout << endl;
+
+	system("cls");
+
+	if (size == 1)
+	{
+		cout << "[+] Длина линии: ";
+		cin >> size;
+
+		cout << "[+] Текстура линии: ";
+		cin >> input_ch;
+		cout << endl;
+
+		for (int x = 0; x < size; x++)
+		{
+			cout << input_ch << " ";
+		}
+	}
+	else if (size == 2)
+	{
+		cout << "[+] Длина линии: ";
+		cin >> size;
+
+		cout << "[+] Текстура линии: ";
+		cin >> input_ch;
+
+		for (int y = 0; y < size; y++)
+		{
+			cout << endl;
+			cout << input_ch << " ";
+		}
+	}
+
+	Sleep(3000);
+	system("cls");
+
+}
+
+void Cube()
+{
+	system("cls");
+
+	int size;
+	string input_ch;
+
+	cout << "[+] Фигура: “Квадрат”" << endl;
+	cout << endl;
+	cout << "[" << 1 << "] Полный" << endl;
+	cout << "[" << 2 << "] Пустой" << endl;
+	cout << "[" << 3 << "] Куб в кубе" << endl;
+	cout << "[+] Выберите тип: ";
+	cin >> size;
+	cout << endl;
+
+	system("cls");
+
+	if (size == 1)
+	{
+		cout << "[+] Длина: ";
+		cin >> size;
+
+		cout << "[+] Текстура: ";
+		cin >> input_ch;
+		cout << endl;
+
+		for (int y = 0; y < size; y++)
+		{
+			for (int x = 0; x < size; x++)
+			{
+				cout << input_ch << " ";
+			}
+			cout << endl;
+		}
+	}
+	else if (size == 2)
+	{
+		cout << "[+] Длина: ";
+		cin >> size;
+
+		cout << "[+] Текстура: ";
+		cin >> input_ch;
+		cout << endl;
+
+		for (int y = 0; y < size; y++)
+		{
+			for (int x = 0; x < size; x++)
+			{
+				if (y > 0 && x > 0 && x < size - 1 && y < size - 1)
+				{
+					cout << "  ";
+				}
+				else
+				{
+					cout << input_ch << " ";
+				}
+			}
+			cout << endl;
+		}
+	}
+	else if (size == 3)
+	{
+		cout << "[+] Длина: ";
+		cin >> size;
+
+		cout << "[+] Текстура: ";
+		cin >> input_ch;
+		cout << endl;
+		//min
+
+		int** arr_us = new int* [size];
+		for (int i = 0; i < size; i++)
+		{
+			arr_us[i] = new int[size];
+		}
+		
+		int half_size = size / 2, // Если длина = 10, то 4 ==> мин будет: 0, 2, 4; макс будет: 9, 7, 5  
+			tm_min = 0,
+			tm_max = size - 1;
+			
+		bool trash = true,
+			time_trash = false;
+
+
+		for (int y = 0; y < size; y++)
+		{
+			for (int x = 0; x < size; x++)
+			{
+				arr_us[y][x] = { 0 };
+			}
+		}
+
+		for (int z = 0; z < size; z++)
+		{
+			for (int y = 0; y < size; y++)
+			{
+				for (int x = 0; x < size; x++)
+				{
+					if (tm_min < half_size && arr_us[y][x] == 0)
+					{
+						if (x == tm_min && y < size && y >= tm_min && y <= tm_max)
+						{
+							arr_us[y][x] = { 1 };
+						}
+						
+						if (y == tm_min && x < size && x >= tm_min && x <= tm_max)
+						{
+							arr_us[y][x] = { 1 };
+						}
+					}
+					if (tm_max >= half_size && arr_us[y][x] == 0)
+					{
+						if (x == tm_max && y < size && y >= tm_min && y <= tm_max)
+						{
+							arr_us[y][x] = { 1 };
+						}
+						if (y == tm_max && x < size && x >= tm_min && x <= tm_max)
+						{
+							arr_us[y][x] = { 1 };
+						}
+					}
+				}
+			}	
+			tm_min += 2;
+			tm_max -= 2;
+		}
+
+		for (int y = 0; y < size; y++)
+		{
+			for (int x = 0; x < size; x++)
+			{
+				if (arr_us[y][x] == 1)
+				{
+					cout << input_ch << " ";
+				}
+				else
+				{
+					cout << "  ";
+				}
+			}
+			cout << endl;
+		}
+
+	}
+	else if (size == 4)
+	{
+		int a = 0;
+		cout << "[+] Длина: ";
+		cin >> size;
+
+		for (int y = 0; y < size; y++)
+		{
+			for (int x = 0; x < size; x++)
+			{
+				cout << y << x << " ";
+			}
+			cout << endl;
+		}
+	}
+
+	Sleep(3000);
+	system("cls");
+}
+
+void Primecube()
+{
+	int size_x,
+		size_y;
+	string input_ch;
+
+	system("cls");
+
+	cout << "[+] Фигура: “Прямоугольник”" << endl;
+	cout << endl;
+	cout << "[" << 1 << "] Полный" << endl;
+	cout << "[" << 2 << "] Пустой" << endl;
+	cout << "[+] Выберите тип: ";
+	cin >> size_y;
+	cout << endl;
+
+	system("cls");
+
+	if (size_y == 1)
+	{
+		cout << "[+] Высота: ";
+		cin >> size_y;
+		cout << endl;
+
+		cout << "[+] Ширина ";
+		cin >> size_x;
+		cout << endl;
+
+		cout << "[+] Текстура: ";
+		cin >> input_ch;
+		cout << endl;
+
+		for (int y = 0; y < size_y; y++)
+		{
+			for (int x = 0; x < size_x; x++)
+			{
+				cout << input_ch << " ";
+			}
+			cout << endl;
+		}
+	}
+	else if (size_y == 2)
+	{
+		cout << "[+] Высота: ";
+		cin >> size_y;
+		cout << endl;
+
+		cout << "[+] Ширина ";
+		cin >> size_x;
+		cout << endl;
+
+		cout << "[+] Текстура: ";
+		cin >> input_ch;
+		cout << endl;
+
+		for (int y = 0; y < size_y; y++)
+		{
+			for (int x = 0; x < size_x; x++)
+			{
+				if (y > 0 && x > 0 && x < size_x - 1 && y < size_y - 1) {
+					cout << "  ";
+				}
+				else
+				{
+					cout << input_ch << " ";
+				}
+			}
+			cout << endl;
+		}
+	}
+
+	Sleep(3000);
+	system("cls");
+}
+
+void Triangle()
+{
+	int size;
+	string input_ch;
+
+	system("cls");
+
+	cout << "[+] Фигура: “Треугольник”" << endl;
+	cout << endl;
+	cout << "[" << 1 << "] Заполненный" << endl;
+	cout << "[" << 2 << "] Пустой" << endl;
+	cout << "[+] Выберите тип: ";
+	cin >> size;
+
+	system("cls");
+
+	if (size == 1)
+	{
+		cout << "[+] Высота: ";
+		cin >> size;
+
+		cout << "[+] Текстура: ";
+		cin >> input_ch;
+
+		int osnov = size + size - 1;
+		int a = osnov / 2;
+
+		for (int y = 0; y <= size; y++)
+		{
+			for (int x = 0; x < osnov; x++)
+			{
+				if (x > a - y && x < a + y)
+				{
+					cout << input_ch << " ";
+				}
+				else
+				{
+					cout << "  ";
+				}
+			}
+			cout << endl;
+		}
+	}
+	else if (size == 2)
+	{
+		cout << "[+] Высота: ";
+		cin >> size;
+
+		cout << "[+] Текстура: ";
+		cin >> input_ch;
+
+		int osnov = size + size - 1;
+		int a = osnov / 2;
+
+		for (int y = 0; y <= size; y++)
+		{
+			for (int x = 0; x < osnov; x++)
+			{
+				if (x > a - y && x < a + y)
+				{
+					if (x > a - y + 1 && x < a + y - 1 && y < size)
+					{
+						cout << "  ";
+					}
+					else
+					{
+						cout << input_ch << " ";
+					}
+				}
+				else
+				{
+					cout << "  ";
+				}
+			}
+			cout << endl;
+		}
+	}
+
+	Sleep(3000);
+	system("cls");
+}
+
+void Lattice()
+{
+	int size;
+	string input_ch;
+
+	system("cls");
+
+	cout << "[+] Фигура: “Решетка”" << endl;
+	cout << endl;
+
+	cout << "[+] Длина: ";
+	cin >> size;
+
+	cout << "[+] Текстура: ";
+	cin >> input_ch;
+	cout << endl;
+
+	if (size % 2 != 1)
+	{
+		size++;
+	}
+
+	for (int y = 0; y < size; y++)
+	{
+		for (int x = 0; x < size; x++)
+		{
+			if (x > 0 && y > 0 && x < size - 1 && y < size - 1)
+			{
+				if (x % 2 == 0 || y % 2 == 0)
+				{
+					cout << input_ch << " ";
+				}
+				else
+				{
+					cout << "  ";
+				}
+			}
+		}
+		cout << endl;
+	}
+
+	Sleep(3000);
+	system("cls");
+
+}
+
+void Plus()
+{
+	system("cls");
+
+	int size;
+	string input_ch;
+
+	cout << "[+] Фигура: “Плюс”" << endl;
+	cout << endl;
+
+	cout << "[+] Длина: ";
+	cin >> size;
+
+	cout << "[+] Текстура: ";
+	cin >> input_ch;
+	cout << endl;
+
+	if (size % 2 != 1)
+	{
+		size += 1;
+	}
+
+	for (int y = 0; y < size; y++)
+	{
+		for (int x = 0; x < size; x++)
+		{
+			if (x == size / 2 || y == size / 2)
+			{
+				cout << input_ch << " ";
+			}
+			else
+			{
+				cout << "  ";
+			}
+		}
+		cout << endl;
+	}
+
+	Sleep(3000);
+	system("cls");
+
+}
+
+void Cross()
+{
+	int size;
+	string input_ch;
+
+	system("cls");
+
+	cout << "[+] Фигура: “Крест”" << endl;
+	cout << endl;
+
+	cout << "[+] Длина: ";
+	cin >> size;
+
+	cout << "[+] Текстура: ";
+	cin >> input_ch;
+	cout << endl;
+
+	if (size % 2 != 1)
+	{
+		size += 1;
+	}
+
+	for (int y = 0; y < size; y++)
+	{
+		for (int x = 0; x < size; x++)
+		{
+			if (x == y)
+			{
+				cout << input_ch << " ";
+			}
+			else if (x == size - y - 1)
+			{
+				cout << input_ch << " ";
+			}
+			else
+			{
+				cout << "  ";
+			}
+		}
+		cout << endl;
+	}
+
+	Sleep(3000);
+	system("cls");
+}
+
+void Rhombus()
+{
+	int size,
+		num = 0,
+		z = 0,
+		i_i = 0;
+	string input_ch;
+
+	system("cls");
+
+
+	cout << "[+] Фигура: “Ромб”" << endl;
+	cout << endl;
+
+		cout << "[+] Высота: ";
+		cin >> size;
+
+		cout << "[+] Текстура: ";
+		cin >> input_ch;
+
+		int pol = size / 2;
+
+		system("cls");
+
+		if (size % 2 == 0)
+		{
+			size++;
+		}
+
+	for (int y = 0; y < size; y++)
+	{
+		if (y <= pol) {
+			for (int x = 0; x < size; x++)
+			{
+				if (x > pol - y && x < pol + y)
+				{
+					cout << input_ch << " ";
+				}
+				else
+				{
+					cout << "  ";
+				}
+			}
+		}
+
+		else if (y > pol)
+		{
+			z = 0;
+			i_i = 0;
+			for (int x_1 = 0; x_1 < size; x_1++)
+			{
+				if (x_1 > y - pol && x_1 <= pol)
+			{
+				cout << input_ch << " ";									
+				z++;														
+			}																
+			else if (x_1 >= pol)											
+			{																
+				if (i_i < z - 1) {											
+					cout << input_ch << " ";								
+					i_i++;													
+				}															
+			}																
+				else														
+				{															
+					cout << "  ";											
+				}															
+			}																
+		}																	
+		cout << endl;
+	}
+
+	Sleep(3000);
+	system("cls");
+
+}
+
+int main() {
+
+	int input = 0;
+	setlocale(0, "");
+
+	while (input == 0)
+	{
+
+		cout << "[+] Программа - “Геометрические фигуры”" << endl << endl;
+		cout << "[1] Линия" << endl;
+		cout << "[2] Квадрат" << endl;
+		cout << "[3] Прямоугольник" << endl;
+		cout << "[4] Треугольник" << endl;
+		cout << "[5] Решетка" << endl;
+		cout << "[6] Плюс" << endl;
+		cout << "[7] Крест" << endl;
+		cout << "[8] Ромб" << endl;
+		cout << "[~] Выйти" << endl << endl;
+		cout << "[+] Выберите фигуру: ";
+		cin >> input;
+
+		cout << endl;
+
+		switch (input)
+		{
+		case 1:
+			input = 0;
+			Line();
+			break;
+		case 2:
+			input = 0;
+			Cube();
+			break;
+		case 3:
+			input = 0;
+			Primecube();
+			break;
+		case 4:
+			input = 0;
+			Triangle();
+			break;
+		case 5:
+			input = 0;
+			Lattice();
+			break;
+		case 6:
+			input = 0;
+			Plus();
+			break;
+		case 7:
+			input = 0;
+			Cross();
+			break;
+		case 8:
+			input = 0;
+			Rhombus();
+			break;
+		default:
+			input = 1;
+			break;
+		}
+	}
+}

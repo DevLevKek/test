@@ -1,0 +1,143 @@
+#include <iostream>
+#include <windows.h>
+#include <string>
+using namespace std;
+
+int main() {
+	string langl_word_1,
+		langl_word_2;
+
+	int choice_1,
+		choice_2;
+
+	setlocale(0, "");
+
+	cout << "[+] Переводчик" << endl;
+	cout << "[1] Русские слова" << endl;
+	cout << "[2] Английские слова" << endl;
+	cout << "[3] Выйти" << endl;
+
+	cin >> choice_1;
+	switch (choice_1)
+	{
+	case 1:
+		cout << "[+] Переводчик “Список русских слов”" << endl;
+		cout << "[1] земля" << endl;
+		cout << "[2] большой" << endl;
+		cout << "[3] высокий" << endl;
+		cout << "[4] люди" << endl;
+		cout << "[5] порт" << endl;
+		cout << "[6] дом" << endl;
+		cout << "[7] конец" << endl;
+		cout << "[8] играть" << endl;
+		cout << "[9] добавлять" << endl;
+		cout << "[10] необходимость" << endl;
+		cout << "[11] должен" << endl;
+		cout << "[12] здесь" << endl;
+		cout << "[13] рука" << endl;
+		cout << "[14] животное" << endl;
+		cout << "[15] точка" << endl;
+		break;
+
+	case 2:
+		cout << "[+] Переводчик “Список английских слов”" << endl;
+		cout << "[1] land" << endl;
+		cout << "[2] big" << endl;
+		cout << "[3] high" << endl;
+		cout << "[4] men" << endl;
+		cout << "[5] port" << endl;
+		cout << "[6] home" << endl;
+		cout << "[7] end" << endl;
+		cout << "[8] play" << endl;
+		cout << "[9] add" << endl;
+		cout << "[10] need" << endl;
+		cout << "[11] must" << endl;
+		cout << "[12] here" << endl;
+		cout << "[13] hand" << endl;
+		cout << "[14] animal" << endl;
+		cout << "[15] point" << endl;
+		break;
+
+	default:
+		exit(0);
+		break;
+	}
+
+
+	cout << "Выберите номер слова: ";
+	cin >> choice_2;
+
+	switch (choice_2)
+	{
+	case 1:
+		langl_word_1 = "земля";
+		langl_word_2 = "land";
+		break;
+	case 2:
+		langl_word_1 = "большой";
+		langl_word_2 = "big";
+		break;
+	case 3:
+		langl_word_1 = "высокий";
+		langl_word_2 = "high";
+		break;
+	case 4:
+		langl_word_1 = "люди";
+		langl_word_2 = "men";
+		break;
+	case 5:
+		langl_word_1 = "порт";
+		langl_word_2 = "port";
+		break;
+	case 6:
+		langl_word_1 = "дом";
+		langl_word_2 = "home";
+		break;
+	case 7:
+		langl_word_1 = "конец";
+		langl_word_2 = "end";
+		break;
+	case 8:
+		langl_word_1 = "играть";
+		langl_word_2 = "play";
+		break;
+	case 9:
+		langl_word_1 = "добавлять";
+		langl_word_2 = "add";
+		break;
+	case 10:
+		langl_word_1 = "необходимость";
+		langl_word_2 = "need";
+		break;
+	case 11:
+		langl_word_1 = "должен";
+		langl_word_2 = "must";
+		break;
+	case 12:
+		langl_word_1 = "здесь";
+		langl_word_2 = "here";
+		break;
+	case 13:
+		langl_word_1 = "рука";
+		langl_word_2 = "hand";
+		break;
+	case 14:
+		langl_word_1 = "животное";
+		langl_word_2 = "animal";
+		break;
+	case 15:
+		langl_word_1 = "точка";
+		langl_word_2 = "point";
+		break;
+	default:
+		break;
+	}
+
+	if (choice_1 == 1) {
+		cout << "[+] Перевод: " << langl_word_1 << " -> " << langl_word_2;
+	}
+	else if (choice_1 == 2) {
+		cout << "[+] Перевод: " << langl_word_2 << " -> " << langl_word_1;
+	}
+	Sleep(3000);
+}

@@ -1,0 +1,182 @@
+#include <iostream>
+#include <ctime>
+#include <Windows.h>
+using namespace std;
+// *num - это ссылка
+
+int BeginArr(int* num, bool& cret)
+{
+	for (int i = 0; i < 7; i++)
+	{
+		cout << "[+] Инициализация | ячейка " << i + 1 << ": ";
+		cin >> num[i];
+		cout << endl;
+	}
+	Sleep(700);
+	system("cls");
+	cret = false;
+	return *num;
+}
+
+int PrintUs(int* num)
+{
+	system("cls");
+
+	cout << endl;
+	for (int i = 0; i < 7; i++)
+	{
+		cout << " " << num[i] << " ";
+	}
+	cout << endl << endl;
+
+	Sleep(4000);
+	system("cls");
+	return *num;
+}
+
+int SortUp(int* num)
+{
+	for (int z = 0; z < 7; z++)
+	{
+		for (int i = 0; i < 6; i++)
+		{
+			if (num[i] > num[i + 1])
+			{
+				swap(num[i], num[i + 1]);
+			}
+		}
+	}
+	PrintUs(num);
+	return *num;
+}
+
+int SortDown(int* num)
+{
+	for (int z = 0; z < 7; z++)
+	{
+		for (int i = 0; i < 7; i++)
+		{
+			if (num[i] < num[i + 1])
+			{
+				swap(num[i], num[i + 1]);
+			}
+		}
+	}
+	PrintUs(num);
+	return *num;
+}
+
+int Multiply(int* num)
+{
+	system("cls");
+
+	int z;
+	cout << "[*] Умножаем на: ";
+	cin >> z;
+
+	for (int i = 0; i < 7; i++)
+	{
+		num[i] *= z;
+	}
+
+	PrintUs(num);
+	return *num;
+}
+
+int FoldUs(int* num)
+{
+	system("cls");
+
+	int z;
+	cout << "[*] Сложить на: ";
+	cin >> z;
+
+	for (int i = 0; i < 7; i++)
+	{
+		num[i] += z;
+	}
+
+	PrintUs(num);
+	return *num;
+}
+
+int DivideUs(int* num)
+{
+	system("cls");
+
+	int z;
+	cout << "[*] Разделить на: ";
+	cin >> z;
+
+	for (int i = 0; i < 7; i++)
+	{
+		num[i] /= z;
+	}
+
+	PrintUs(num);
+	return *num;
+}
+
+int ZeroeUs(int* num)
+{
+	system("cls");
+
+	for (int i = 0; i < 7; i++)
+	{
+		num[i] *= NULL;
+	}
+
+	PrintUs(num);
+	return *num;
+}
+
+int main()
+{
+	setlocale(0, "");
+	bool ext = false,
+		creatarr = true;
+	int inptusr = 0,
+		arrusr[7];
+
+	while (ext != true)
+	{
+		if (creatarr == true || inptusr == 9)
+		{
+			BeginArr(arrusr, creatarr);
+		}
+		if (inptusr == 1)
+		{
+			SortUp(arrusr);
+		}
+		if (inptusr == 2)
+		{
+			SortDown(arrusr);
+		}
+		if (inptusr == 3)
+		{
+			Multiply(arrusr);
+		}
+		if (inptusr == 4)
+		{
+			FoldUs(arrusr);
+		}
+		if (inptusr == 5)
+		{
+			DivideUs(arrusr);
+		}
+		if (inptusr == 6)
+		{
+			ZeroeUs(arrusr);
+		}
+
+		cout << " [1] Сортировка по возрастанию " << endl;
+		cout << " [2] Сортировка по убыванию " << endl;
+		cout << " [3] Перемножить массив " << endl;
+		cout << " [4] Сложить массив " << endl;
+		cout << " [5] Разделить массив " << endl;
+		cout << " [6] Обнулить массив " << endl;
+		cout << " [9] Задать новые значения массиву " << endl;
+		cout << " [+] Ввод: ";
+		cin >> inptusr;
+	}
+}

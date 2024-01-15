@@ -1,0 +1,79 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+
+	int number_user,
+		random = 1 + rand() % 10,
+		temporary;
+
+	setlocale(0, "");
+
+	cout << "Введите число: ";
+	cin >> number_user;
+
+	cout << "Решите пример : " << number_user << " * " << random << endl;
+	temporary = number_user * random; 
+
+	cout << "Ответ:";
+	cin >> number_user;
+
+	if (number_user == temporary) {
+		cout << "Пример решен правильно!";
+	}
+	else
+	{
+		cout << "Ошибка, пример решен неверно!";
+	}
+}
+
+---------------------------------------------------------------------------------------------
+
+#include <iostream>
+#include <windows.h>
+using namespace std;
+
+int main() {
+
+	int number_user,
+		number_pc = 1,
+		temporary_variable;
+	bool end_cicle = true;
+
+	setlocale(0, "");
+
+	cout << "[+] Введите число: ";
+	cin >> temporary_variable;
+
+	system("cls");
+
+	while (number_pc != 10 && end_cicle == true)
+	{
+		cout << "[+] Решите пример:" << temporary_variable << " x " << number_pc << endl;
+		cout << "[+] Ответ: ";
+		cin >> number_user;
+
+
+		if (number_user == temporary_variable * number_pc) 
+		{
+			cout << "[+] Пример решен правильно!" << endl;
+		}
+		else 
+		{
+			end_cicle = false;
+		}
+		number_pc++;
+		system("cls");
+	}
+
+	if (end_cicle == true)
+	{
+		cout << "[+] Примеры решены, поздравляем!" << endl;
+	}
+	else 
+	{
+		cout << "[-] Ошибка, пример решен неверно!" << endl;
+	}
+	Sleep(3000);
+}

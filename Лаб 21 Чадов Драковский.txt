@@ -1,0 +1,55 @@
+#include <iostream>
+#include <ctime>
+#include <Windows.h>
+using namespace std;
+
+int main()
+{
+	setlocale(0, "");
+	int arrUser[5];
+
+	for (int i = 0; i < 5; i++)
+	{
+		cout << "[" << i + 1 << "] Введите число: ";
+		cin >> arrUser[i];
+	}
+
+	bool ext = false;
+	int i_1;
+
+	while (ext != true)
+	{
+		cout << "[*] Введите номер таблици: ";
+		cin >> i_1;
+		i_1--;
+		if (i_1 >= 0 && i_1 <= 4)
+		{
+			cout << "____________________________________________________" << endl;
+			cout << "|  Число  |        Пример        |    Результат    |" << endl;
+			cout << "____________________________________________________" << endl;
+			for (int z = 0; z <= 3; z++)
+			{
+
+				switch (z)
+				{
+				case 0:
+					cout << "|    " << arrUser[i_1] << "    |        " << arrUser[i_1] << " + " << arrUser[i_1] << "         |     " << arrUser[i_1] + arrUser[i_1] << "     | " << endl;
+					cout << "____________________________________________________" << endl;
+					break;
+				case 1:
+					cout << "|    " << arrUser[i_1] << "    |        " << arrUser[i_1] << " - " << arrUser[i_1] << "         |     " << arrUser[i_1] - arrUser[i_1] << "     | " << endl;
+					cout << "____________________________________________________" << endl;
+					break;
+				case 2:
+					cout << "|    " << arrUser[i_1] << "    |        " << arrUser[i_1] << " / " << arrUser[i_1] << "         |     " << arrUser[i_1] / arrUser[i_1] << "     | " << endl;
+					cout << "____________________________________________________" << endl;
+					break;
+				case 3:
+					cout << "|    " << arrUser[i_1] << "    |        " << arrUser[i_1] << " * " << arrUser[i_1] << "         |     " << arrUser[i_1] * arrUser[i_1] << "     | " << endl;
+					cout << "____________________________________________________" << endl;
+					break;
+				}
+			}
+		}
+	}
+}

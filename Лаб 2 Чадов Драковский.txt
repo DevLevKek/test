@@ -1,0 +1,43 @@
+#include <iostream>
+#include <windows.h>
+using namespace std;
+
+int main()
+{
+	setlocale(0, "");
+	int input;
+	string time_1 = "Лето",
+		time_2 = "Осень",
+		time_3 = "Зима",
+		time_4 = "Весна";
+
+	cout << "Программа 'Времена года'" << endl;
+	cout << "[1] Лето" << endl;
+	cout << "[2] Осень" << endl;
+	cout << "[3] Зима" << endl;
+	cout << "[4] Весна" << endl;
+
+
+	cin >> input;
+
+	if (input == 1) 
+	{
+		cout << "Сейчас " << time_1 << ", следует одеться легко и пойти на пляж";
+	}
+
+	else if (input == 2)
+	{
+		cout << "Сейчас " << time_2 << ", на улице прохладно следует одеть курточку";
+	}
+
+	else if (input == 3) 
+	{
+		cout << "Сейчас " << time_3 << ", на улице дубак, следует забить на все свои дела и остаться дома";
+	}
+
+	else if(input == 4)
+	{
+		cout << "Сейчас " << time_4 << ", ура скоро лета, пора сжигать бабу ";
+	}
+	Sleep(3000);
+}

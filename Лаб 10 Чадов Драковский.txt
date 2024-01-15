@@ -1,0 +1,70 @@
+#include <iostream>
+#include <ctime>
+#include <Windows.h>
+using namespace std;
+
+int main() 
+{
+	string green = "\x1b[92m";
+	string red = "\x1b[91m";
+	string white = "\x1b[0m";
+	string purle = "\x1b[95m";
+	string auqa = "\x1b[96m";
+
+	setlocale (0, "");
+	srand(time(0));
+	int random_org = rand() % 10 + 1;
+
+
+	
+	int i,
+		right = 0, // правильно
+		wrong = 0, // неправильно
+		attempts = 5; //попытки
+	while (attempts)
+	{
+		cout << "Количество попыток: " << attempts << endl;
+		cout << "Угадай число от 1 до 10: ";
+
+		random_org = rand() % 10 + 1;
+
+		cin >> i;
+
+
+		if (random_org == i)
+		{
+			cout << "Вы угадали!";
+			cout << "" << endl;
+			right++;
+
+		}
+		else
+		{
+			cout << "Вы не угадали!";
+			cout << "" << endl;
+			wrong++;
+		}
+	
+		attempts--;
+
+
+		if (i > 10)
+		{
+			cout << "Число слишком большое!" << endl;
+			cout << "Попробуйте снова" << endl;
+			attempts++;
+		}
+		//Sleep(2000);
+		
+
+	}
+	while (attempts == 0)
+	{
+		cout << "" << endl;
+		cout << "Вы угадали: " << green << right << white << endl;
+		cout << "Вы не угадали: " << red << wrong << white << endl;
+		return 0;
+	}
+
+	int _; cin >>_;
+}
